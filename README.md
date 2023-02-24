@@ -32,7 +32,7 @@
 
 # 📖 Bookstore<a name="about-project"></a>
 
-> In this exercise, I will going to consolidate my knowledge about React, components, props, state, and hooks, by following a tutorial.
+> Bookstore is a website with this functionalities: display a list of books,  add a book and remove a selected book.
 
 ## 🛠 Built With <a name="built-with"></a>
 
