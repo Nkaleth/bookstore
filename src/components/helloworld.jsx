@@ -1,3 +1,3 @@
-const Hello = () => <div>Hello world!</div>
+const Hello = () => <div>Hello world!</div>;
 
 export default Hello;
