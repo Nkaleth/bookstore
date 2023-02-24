@@ -70,7 +70,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Math Magicians](https://nkaleth.github.io/bookstore/)
+[Coming Soon](https://nkaleth.github.io/bookstore/)
 
 
 <!-- > Here you can visit my live demo : -->
