@@ -1,10 +1,9 @@
 import AddnewBooks from '../components/AddnewBook';
-import Book from '../components/Book';
+import BookList from '../components/BookList';
 
 const Home = () => (
   <div className="books">
-    <Book title="Lolita" author="Vladimir Navokob" />
-    <Book title="Madamme Bovary" author="Gustave Flaubert" />
+    <BookList />
     <AddnewBooks />
   </div>
 );
