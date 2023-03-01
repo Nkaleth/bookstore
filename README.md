@@ -63,6 +63,8 @@
 - **Use React life cycle methods.**
 - **Understand the mechanism of lifting state up.**
 - **Use React Router.**
+- **Understand the concept of state management.**
+- **Use store, actions, and reducers in React.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
