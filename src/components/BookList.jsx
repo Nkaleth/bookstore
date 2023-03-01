@@ -1,8 +1,16 @@
 import Book from './Book';
 
 const books = [
-  { title: 'Lolita', author: 'Vladimir Navokob' },
-  { title: 'Madamme Bovary', author: 'Gustave Flaubert' },
+  {
+    id: 'lolvlad1',
+    title: 'Lolita',
+    author: 'Vladimir Navokob',
+  },
+  {
+    id: 'madgus2',
+    title: 'Madamme Bovary',
+    author: 'Gustave Flaubert',
+  },
 ];
 
 const BookList = () => (
@@ -13,4 +21,4 @@ const BookList = () => (
   </div>
 );
 
-export default BookList;
+export { books, BookList };

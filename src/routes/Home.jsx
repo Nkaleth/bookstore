@@ -1,5 +1,5 @@
 import AddnewBooks from '../components/AddnewBook';
-import BookList from '../components/BookList';
+import { BookList } from '../components/BookList';
 
 const Home = () => (
   <div className="books">
