@@ -1,24 +1,15 @@
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
-const books = [
-  {
-    id: 'lolvlad1',
-    title: 'Lolita',
-    author: 'Vladimir Navokob',
-  },
-  {
-    id: 'madgus2',
-    title: 'Madamme Bovary',
-    author: 'Gustave Flaubert',
-  },
-];
-
-const BookList = () => (
-  <div className="library">
-    {books.map((book) => (
-      <Book key={book.title} title={book.title} author={book.author} />
-    ))}
-  </div>
-);
-
-export { books, BookList };
+const BookList = () => {
+  const { bookItems } = useSelector((store) => store.books);
+  console.log('bookItems on Booklist.jsx', bookItems);
+  return (
+    <div className="library">
+      {bookItems.map((book) => (
+        <Book key={book.item_id} title={book.title} author={book.author} />
+      ))}
+    </div>
+  );
+};
+export default BookList;
