@@ -3,7 +3,6 @@ import Book from './Book';
 
 const BookList = () => {
   const { bookItems } = useSelector((store) => store.books);
-  console.log('bookItems on Booklist.jsx', bookItems);
   return (
     <div className="library">
       {bookItems.map((book) => (

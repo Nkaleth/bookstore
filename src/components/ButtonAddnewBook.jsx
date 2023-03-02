@@ -10,6 +10,7 @@ const ButtonAddnewBooks = () => {
     const author = event.target.author.value;
     const newbook = { title, author };
     dispatch(AddBook(newbook));
+    event.target.reset();
   };
   return (
     <section className="addBookWrapper">

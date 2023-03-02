@@ -28,17 +28,15 @@ const bookSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    AddBook: (state, { payload }) => {
-      console.log('bookItems on state', state.bookItems);
-      const newbook = {
+    AddBook: (state, { payload }) => ({
+      ...state,
+      bookItems: [...state.bookItems, {
         item_id: uuidv4(),
         title: payload.title,
         author: payload.author,
-      };
-      const newState = [...state.bookItems, newbook];
-      console.log('newstate', newState);
-      return newState;
-    },
+      },
+      ],
+    }),
     RemoveBook: (state, { payload }) => {
       const newState = { ...state };
       return newState.books.filter((book) => book.id !== payload);
