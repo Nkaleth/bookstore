@@ -18,7 +18,8 @@ const ButtonAddnewBooks = () => {
     event.preventDefault();
     const newbook = { title, author };
     dispatch(AddBook(newbook));
-    event.target.reset();
+    setTitle('');
+    setAuthor('');
   };
   return (
     <section className="addBookWrapper">
