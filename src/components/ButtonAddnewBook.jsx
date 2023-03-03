@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { AddBook } from '../redux/books/bookSlice';
+import { v4 as uuidv4 } from 'uuid';
+import { addBookAPI } from '../redux/books/bookSlice';
 
 const ButtonAddnewBooks = () => {
   const [title, setTitle] = useState('');
@@ -16,8 +17,13 @@ const ButtonAddnewBooks = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newbook = { title, author };
-    dispatch(AddBook(newbook));
+    const newbook = {
+      item_id: uuidv4(),
+      title,
+      author,
+      category: 'fiction',
+    };
+    dispatch(addBookAPI(newbook));
     setTitle('');
     setAuthor('');
   };

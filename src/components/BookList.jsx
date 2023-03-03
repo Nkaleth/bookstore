@@ -1,17 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookItems } from '../redux/books/bookSlice';
 import Book from './Book';
 
 const BookList = () => {
-  const { bookItems, isLoading } = useSelector((store) => store.books);
-  const { current: Mybooks } = useRef(bookItems);
-  // console.log(bookItems, isLoading, 'BooksItems Type:', typeof (bookItems));
+  const { bookAdded, bookItems, isLoading } = useSelector((store) => store.books);
+  // const { current: Mybooks } = useRef(bookItems);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookItems());
-  }, [dispatch, Mybooks]);
+  }, [dispatch, bookAdded]);
 
   if (isLoading) {
     return (

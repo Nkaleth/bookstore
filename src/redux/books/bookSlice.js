@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import { v4 as uuidv4 } from 'uuid';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -7,6 +6,7 @@ const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 const initialState = {
   bookItems: [],
   isLoading: false,
+  bookAdded: false,
 };
 
 export const getBookItems = createAsyncThunk('books/getBookItems', async () => {
@@ -34,9 +34,7 @@ const bookSlice = createSlice({
     AddBook: (state, { payload }) => ({
       ...state,
       bookItems: [...state.bookItems, {
-        item_id: uuidv4(),
-        title: payload.title,
-        author: payload.author,
+        payload,
       },
       ],
     }),
@@ -60,6 +58,13 @@ const bookSlice = createSlice({
       .addCase(getBookItems.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      })
+      .addCase(addBookAPI.fulfilled, (state) => {
+        if (state.bookAdded) {
+          state.bookAdded = false;
+        } else {
+          state.bookAdded = true;
+        }
       });
   },
 });
