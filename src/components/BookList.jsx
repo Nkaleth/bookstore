@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookItems } from '../redux/books/bookSlice';
 import Book from './Book';
 
 const BookList = () => {
   const { bookItems, isLoading } = useSelector((store) => store.books);
+  const { current: Mybooks } = useRef(bookItems);
+  // console.log(bookItems, isLoading, 'BooksItems Type:', typeof (bookItems));
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookItems());
-  }, []);
+  }, [dispatch, Mybooks]);
 
   if (isLoading) {
     return (
@@ -22,8 +24,8 @@ const BookList = () => {
     <div className="library">
       {bookItems.map((book) => (
         <Book
-          key={book.item_id}
-          id={book.item_id}
+          key={book.id}
+          id={book.id}
           title={book.title}
           author={book.author}
         />
