@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { v4 as uuidv4 } from 'uuid';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mP2FLQP9kXHxPk2Ztptk/books';
 const initialState = {
@@ -8,9 +9,12 @@ const initialState = {
   isLoading: true,
 };
 
-export const getBookItems = createAsyncThunk('books/getBookItems', () => fetch(url)
-  .then((resp) => resp.json())
-  .catch((err) => console.log(err)));
+export const getBookItems = createAsyncThunk('books/getBookItems', async () => {
+  try {
+    const resp = await axios(url);
+    return resp.data;
+  } catch (error) {}
+});
 
 const bookSlice = createSlice({
   name: 'books',
@@ -33,9 +37,9 @@ const bookSlice = createSlice({
         state.isLoading = true;
       },
       [getBookItems.fulfilled]: (state, action) => {
-        console.log(action);
         state.isLoading = false;
         state.bookItems = action.payload;
+        console.log(action);
       },
       [getBookItems.rejected]: (state) => {
         state.isLoading = false;
