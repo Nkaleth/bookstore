@@ -1,25 +1,28 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import '../styles/NavBar.css';
+import UserIcon from '../icons/userIcon';
 
 const links = [
-  { path: '/', text: 'Books' },
-  { path: 'categories', text: 'Categories' },
+  { path: '/', text: 'BOOKS' },
+  { path: 'categories', text: 'CATEGORIES' },
 ];
 
 const NavBar = () => (
   <div className="wrapper">
     <div className="NavBar">
-      <div>Logo</div>
-      <div className="links">
+      <div className="Bookstore">Bookstore CMS</div>
+      <div className="containerLinks">
         <ul>
           {links.map((link) => (
-            <li key={link.text}>
-              <NavLink to={link.path}>{link.text}</NavLink>
+            <li className="nameLinks" key={link.text}>
+              <NavLink className="links" to={link.path}>{link.text}</NavLink>
             </li>
           ))}
         </ul>
       </div>
-      <div className="userProfile">UserProfile</div>
+      <div className="iconCont">
+        <UserIcon />
+      </div>
     </div>
     <Outlet />
   </div>

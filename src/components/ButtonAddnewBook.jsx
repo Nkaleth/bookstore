@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { addBookAPI } from '../redux/books/bookSlice';
+import '../styles/AddnewBook.css';
 
 const ButtonAddnewBooks = () => {
   const [title, setTitle] = useState('');
@@ -21,7 +22,7 @@ const ButtonAddnewBooks = () => {
       item_id: uuidv4(),
       title,
       author,
-      category: 'fiction',
+      category: 'Classic',
     };
     dispatch(addBookAPI(newbook));
     setTitle('');
@@ -29,11 +30,11 @@ const ButtonAddnewBooks = () => {
   };
   return (
     <section className="addBookWrapper">
-      <p>Add a new book:</p>
+      <p className="titleForm">Add a new book:</p>
       <form className="addBooksStyle" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Title" name="title" value={title} required onChange={newTitle} />
-        <input type="text" placeholder="Author" name="author" value={author} required onChange={newAuthor} />
-        <button type="submit">AddBook</button>
+        <input className="inputNewBook" type="text" placeholder="Title" name="title" value={title} required onChange={newTitle} />
+        <input className="inputNewBook" type="text" placeholder="Author" name="author" value={author} required onChange={newAuthor} />
+        <button className="addButton" type="submit">Add Book</button>
       </form>
     </section>
   );
