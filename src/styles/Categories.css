@@ -1,0 +1,20 @@
+.checkStatus {
+  cursor: pointer;
+  width: 20%;
+  padding: 12px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  border: none;
+  letter-spacing: 0.5px;
+  color: white;
+  font-size: 0.813rem;
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
+
+.UnderConst {
+  font-weight: 700;
+  font-size: 30px;
+  color: #0290ff;
+  margin-left: 1%;
+}
