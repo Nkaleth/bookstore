@@ -73,7 +73,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Coming Soon](https://nkaleth.github.io/bookstore/)
+[BookStore live demo](https://bookstore-s03p.onrender.com/)
 
 
 <!-- > Here you can visit my live demo : -->
