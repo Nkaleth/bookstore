@@ -65,6 +65,7 @@
 - **Use React Router.**
 - **Understand the concept of state management.**
 - **Use store, actions, and reducers in React.**
+- **Connect an existing API via Redux and use the data to display something in a UI.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
