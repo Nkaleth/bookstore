@@ -2,11 +2,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mP2FLQP9kXHxPk2Ztptk/books';
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mP2FLQP9kXHxPk2Ztptk/books/';
 const initialState = {
   bookItems: [],
   isLoading: false,
   bookAdded: false,
+  bookRemoved: false,
 };
 
 export const getBookItems = createAsyncThunk('books/getBookItems', async () => {
@@ -27,20 +28,20 @@ export const addBookAPI = createAsyncThunk('books/addBookAPI', async (newBook) =
   }
 });
 
+export const delBookAPI = createAsyncThunk('books/delBookAPI', async (id) => {
+  const newURL = url.concat(id);
+  try {
+    const resp = await axios.delete(newURL);
+    return resp.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 const bookSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    AddBook: (state, { payload }) => ({
-      ...state,
-      bookItems: [...state.bookItems, {
-        payload,
-      },
-      ],
-    }),
-    RemoveBook: (state, { payload }) => ({
-      bookItems: state.bookItems.filter((item) => item.item_id !== payload),
-    }),
   },
   extraReducers: (builder) => {
     builder
@@ -64,6 +65,13 @@ const bookSlice = createSlice({
           state.bookAdded = false;
         } else {
           state.bookAdded = true;
+        }
+      })
+      .addCase(delBookAPI.fulfilled, (state) => {
+        if (state.bookRemoved) {
+          state.bookRemoved = false;
+        } else {
+          state.bookRemoved = true;
         }
       });
   },

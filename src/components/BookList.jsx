@@ -4,13 +4,14 @@ import { getBookItems } from '../redux/books/bookSlice';
 import Book from './Book';
 
 const BookList = () => {
-  const { bookAdded, bookItems, isLoading } = useSelector((store) => store.books);
-  // const { current: Mybooks } = useRef(bookItems);
+  const {
+    bookRemoved, bookAdded, bookItems, isLoading,
+  } = useSelector((store) => store.books);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookItems());
-  }, [dispatch, bookAdded]);
+  }, [dispatch, bookAdded, bookRemoved]);
 
   if (isLoading) {
     return (
