@@ -73,7 +73,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[BookStore live demo](https://bookstore-s03p.onrender.com/)
+[BookStore live demo](https://bookstore-obvr.onrender.com/)
 
 
 <!-- > Here you can visit my live demo : -->
